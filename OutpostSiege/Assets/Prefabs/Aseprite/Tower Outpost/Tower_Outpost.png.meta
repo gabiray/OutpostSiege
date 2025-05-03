@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 205438c17b5a1534fbeeb3cbeca16ad0
+guid: c0049e685ef5ff84ba9ba31f7248380b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -588772531144248999
-    second: Ground_Tiles_0
+      213: 4917209289006270528
+    second: Tower_Outpost_0
   - first:
-      213: -6956613891488932102
-    second: Ground_Tiles_1
-  - first:
-      213: -2558063235151372645
-    second: Ground_Tiles_2
-  - first:
-      213: 5358107121000337386
-    second: Ground_Tiles_3
+      213: -2136875794729425580
+    second: Tower_Outpost_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -84,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,89 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ground_Tiles_0
+      name: Tower_Outpost_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 24
-        width: 32
-        height: 64
+        x: 0
+        y: 0
+        width: 80
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 951b3ab908244d7f0800000000000000
-      internalID: -588772531144248999
+      spriteID: 048487dbbcf6d3440800000000000000
+      internalID: 4917209289006270528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ground_Tiles_1
+      name: Tower_Outpost_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 24
-        width: 32
-        height: 64
+        x: 80
+        y: 0
+        width: 80
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: afe114ef584257f90800000000000000
-      internalID: -6956613891488932102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground_Tiles_2
-      rect:
-        serializedVersion: 2
-        x: 84
-        y: 24
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b9ed0d37a0fef7cd0800000000000000
-      internalID: -2558063235151372645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ground_Tiles_3
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 24
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aef47bfb902db5a40800000000000000
-      internalID: 5358107121000337386
+      spriteID: 455a50e49ca4852e0800000000000000
+      internalID: -2136875794729425580
       vertices: []
       indices: 
       edges: []
@@ -213,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 81601438a5f310941ad5a38ab8cc1a81
     internalID: 0
     vertices: []
     indices: 
@@ -223,10 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ground_Tiles_0: -588772531144248999
-      Ground_Tiles_1: -6956613891488932102
-      Ground_Tiles_2: -2558063235151372645
-      Ground_Tiles_3: 5358107121000337386
+      Tower_Outpost_0: 4917209289006270528
+      Tower_Outpost_1: -2136875794729425580
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
