@@ -1,61 +1,140 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ProceduralGeneration : MonoBehaviour
+public class GroundGenerator : MonoBehaviour
 {
-    [Header("Tile Prefabs")]
-    [SerializeField] private GameObject dirtTile;
-    [SerializeField] private GameObject grassTile;
-    [SerializeField] private GameObject transitionLeftTile;
-    [SerializeField] private GameObject transitionRightTile;
+    [SerializeField] private GameObject Ground_Dirt;
+    [SerializeField] private GameObject Ground_Grass_Left;
+    [SerializeField] private GameObject Ground_Grass_Right;
+    [SerializeField] private GameObject Ground_Grass_Between;
 
-    [Header("Generation Settings")]
-    [SerializeField] private int xLimit = 50;      // From -xLimit to +xLimit
-    [SerializeField] private int grassWidth = 10;  // Number of grass tiles in the center
-    [SerializeField] private float tileHeight = 2;
-
-    private float tileWidth;
-
-    private void Start()
+    [SerializeField] private int groundLength = 5;
+    [SerializeField] private float tileSize = 2.0f;
+    [SerializeField] private float groundHeight = -5f;
+    public void SetGroundLength(int value)
     {
-        tileWidth = GetTileWidth();
-        GenerateGround();
+        groundLength += value;
     }
 
-    private float GetTileWidth()
+
+    void Start()
     {
-        if (dirtTile.TryGetComponent(out SpriteRenderer sr))
-        {
-            return sr.bounds.size.x;
-        }
-        else
-        {
-            Debug.LogWarning("Dirt tile missing SpriteRenderer. Defaulting tileWidth to 1.");
-            return 1f;
-        }
+        SetGroundLength(6);
+
+        GenerateGroundRight();
+        GenerateGroundLeft();
+        //adauga coliziunea
+
+        float endRight = groundLength*tileSize - (6 * tileSize);
+        float endLeft = -groundLength* tileSize + (6 * tileSize);
+
+        CreateEdgeBarrier2D(endRight);  // Barieră dreapta
+        CreateEdgeBarrier2D(endLeft);   // Barieră stânga
     }
+    
 
-    private void GenerateGround()
+    //genereaza groundul in dreapta
+    void GenerateGroundRight()
     {
-        int startGrass = -grassWidth / 2;
-        int endGrass = grassWidth / 2;
-
-        for (int x = -xLimit; x <= xLimit; x++)
+        
+        for (int i = 0; i < groundLength;)
         {
-            Vector3 position = new Vector3(x * tileWidth, tileHeight, 0f);
-            GameObject tileToPlace;
+            float xPos = i * tileSize;
 
-            if (x < startGrass - 1)
-                tileToPlace = dirtTile;
-            else if (x == startGrass - 1)
-                tileToPlace = transitionRightTile;
-            else if (x >= startGrass && x <= endGrass)
-                tileToPlace = grassTile;
-            else if (x == endGrass + 1)
-                tileToPlace = transitionLeftTile;
+            if (i <= groundLength - 3 && Random.value > 0.5f)
+            {
+                bool ok = false;
+
+                Instantiate(Ground_Grass_Left, new Vector3(xPos, groundHeight, 0), Quaternion.identity, transform);
+                xPos += tileSize;
+
+                int grassBetweenCount = Random.Range(2, 7);
+                for (int j = 0; j < grassBetweenCount; j++)
+                {
+                    Instantiate(Ground_Grass_Between, new Vector3(xPos, groundHeight, 0), Quaternion.identity, transform);
+                    xPos += tileSize;
+                    ok = true;
+                }
+
+                if (ok)
+                {
+                    Instantiate(Ground_Grass_Right, new Vector3(xPos, groundHeight, 0), Quaternion.identity, transform);
+                    xPos += tileSize;
+                }
+
+                i += (2 + grassBetweenCount);
+
+                int dirtCount = Random.Range(1, 3);
+                for (int j = 0; j < dirtCount && i < groundLength; j++)
+                {
+                    Instantiate(Ground_Dirt, new Vector3(xPos, groundHeight, 0), Quaternion.identity, transform);
+                    xPos += tileSize;
+                    i++;
+                }
+            }
             else
-                tileToPlace = dirtTile;
-
-            Instantiate(tileToPlace, position, Quaternion.identity, transform);
+            {
+                Instantiate(Ground_Dirt, new Vector3(xPos, groundHeight, 0), Quaternion.identity, transform);
+                i++;
+            }
+            
         }
     }
+
+    //genereaza groundul in stanga
+    //se inverseaza stanga cu dreapta
+    void GenerateGroundLeft()
+    {
+        for (int i = 0; i < groundLength;)
+        {
+            float xPos = i * tileSize;
+
+            if (i <= groundLength - 3 && Random.value > 0.5f)
+            {
+                bool ok = false;
+
+                Instantiate(Ground_Grass_Right, new Vector3(-xPos, groundHeight, 0), Quaternion.identity, transform);
+                xPos += tileSize;
+
+                int grassBetweenCount = Random.Range(2, 7);
+                for (int j = 0; j < grassBetweenCount; j++)
+                {
+                    Instantiate(Ground_Grass_Between, new Vector3(-xPos, groundHeight, 0), Quaternion.identity, transform);
+                    xPos += tileSize;
+                    ok = true;
+                }
+
+                if (ok)
+                {
+                    Instantiate(Ground_Grass_Left, new Vector3(-xPos, groundHeight, 0), Quaternion.identity, transform);
+                    xPos += tileSize;
+                }
+
+                i += (2 + grassBetweenCount);
+
+                int dirtCount = Random.Range(1, 3);
+                for (int j = 0; j < dirtCount && i < groundLength; j++)
+                {
+                    Instantiate(Ground_Dirt, new Vector3(-xPos, groundHeight, 0), Quaternion.identity, transform);
+                    xPos += tileSize;
+                    i++;
+                }
+            }
+            else
+            {
+                Instantiate(Ground_Dirt, new Vector3(-xPos, groundHeight, 0), Quaternion.identity, transform);
+                i++;
+            }
+        }
+    }
+    //funcie car pune coliziuni sa nu cada de pe mapa playerul
+    void CreateEdgeBarrier2D(float xPosition)
+    {
+        GameObject barrier = new GameObject("EdgeBarrier2D");
+        BoxCollider2D collider = barrier.AddComponent<BoxCollider2D>();
+        collider.size = new Vector2(1f, 20f); // 1 unitate lățime, 20 unități înălțime
+        barrier.transform.position = new Vector2(xPosition, groundHeight + 10f); // Centrat vertical
+        barrier.transform.parent = transform;
+    }
+
+
 }

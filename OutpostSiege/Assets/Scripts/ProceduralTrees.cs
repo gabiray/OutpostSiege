@@ -1,37 +1,85 @@
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeSpawner : MonoBehaviour
+public class RandomTreeSpawner : MonoBehaviour
 {
-    [Header("Tree Prefabs")]
-    [SerializeField] private GameObject[] treePrefabs;
+    [Header("🌲 Prefaburi Copaci")]
+    [Tooltip("Lista cu toate prefabricatele de copaci disponibile")]
+    [SerializeField] private List<GameObject> treePrefabs;
 
-    [Header("Spawn Settings")]
-    [SerializeField] private float minDistance = 4f;
-    [SerializeField] private float maxDistance = 10f;
-    [SerializeField] private float yOffset = 0f;
-    [SerializeField] private int xLimit = 50;
+    [Header("📏 Distanțe și Setări Spawn")]
+    [Tooltip("Distanța de la centru unde încep să fie plasați copacii")]
+    [SerializeField] private float startDistance = 10f;
 
-    private void Start()
+    [Tooltip("Distanța maximă până unde se pot întinde copacii, TREBUIE SA FIE 2*GROUNDLENGTH")]
+    [SerializeField] private float stopDistance = 100f;
+
+    [Tooltip("Numărul minim de copaci pe o direcție")]
+    [SerializeField] private int minTrees = 10;
+
+    [Tooltip("Numărul maxim de copaci pe o direcție")]
+    [SerializeField] private int maxTrees = 15;
+
+    [Tooltip("Înălțimea la care se vor plasa copacii (Y)")]
+    [SerializeField] private float treeYPosition = 1.3f;
+
+    [Header("↔️ Spațiere Copaci (automat în funcție de maxTrees)")]
+    [SerializeField] private float minTreeSpacing;
+    [SerializeField] private float maxTreeSpacing;
+
+    void Start()
     {
-        SpawnTrees();
+
+
+        SpawnTrees(1);  // Dreapta
+        SpawnTrees(-1); // Stânga
     }
 
-    private void SpawnTrees()
+    void SpawnTrees(int direction)
     {
-        float xPos = -xLimit;
+        
+        Vector3 startPosition = transform.position;
+        
 
-        while (xPos <= xLimit)
+        int treeCount = Random.Range(minTrees, maxTrees + 1);
+        float currentX =  (startDistance * direction);
+
+        for (int i = 0; i < treeCount; i++)
         {
-            // Pick a random tree
-            GameObject treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
+            float treeSpacing = Random.Range(minTreeSpacing, maxTreeSpacing);
+            if (i > 0)
+            {
+                currentX += treeSpacing * direction;
+            }
+            if (Mathf.Abs(currentX) < stopDistance)
+            {
+                SpawnTree(currentX, startPosition.z, i);
+            }
+            else
+            {
+                break;
+            }
 
-            // Instantiate tree
-            Vector3 position = new Vector3(xPos, yOffset, 0f);
-            Instantiate(treePrefab, position, Quaternion.identity, transform);
+        }
+    }
 
-            // Advance xPos by a random distance
-            float step = Random.Range(minDistance, maxDistance);
-            xPos += step;
+
+
+    void SpawnTree(float x, float z, int index)
+    {
+        if (treePrefabs == null || treePrefabs.Count == 0)
+        {
+            Debug.LogWarning("Lista de prefaburi de copaci este goală!");
+            return;
+        }
+
+        GameObject selectedPrefab = treePrefabs[Random.Range(0, treePrefabs.Count)];
+        if (selectedPrefab != null)
+        {
+            float randomZ = Random.Range(z - 5f, z + 5f);
+            Vector3 treePosition = new Vector3(x, treeYPosition, randomZ);
+            GameObject tree = Instantiate(selectedPrefab, treePosition, Quaternion.identity);
+            tree.name = "Tree" + (index + 1);
         }
     }
 }
