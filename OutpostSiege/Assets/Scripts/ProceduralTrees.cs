@@ -9,7 +9,8 @@ public class TreeSpawner : MonoBehaviour
     [SerializeField] private float minDistance = 4f;
     [SerializeField] private float maxDistance = 10f;
     [SerializeField] private float yOffset = 0f;
-    [SerializeField] private int xLimit = 50;
+    [SerializeField] private float xLimit = 50f;
+    [SerializeField] private float safeZoneWidth = 10f; // New: half-width of spawn zone in the center
 
     private void Start()
     {
@@ -18,20 +19,29 @@ public class TreeSpawner : MonoBehaviour
 
     private void SpawnTrees()
     {
-        float xPos = -xLimit;
-
-        while (xPos <= xLimit)
+        // LEFT SIDE
+        float xLeft = -safeZoneWidth;
+        while (xLeft >= -xLimit)
         {
-            // Pick a random tree
-            GameObject treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
+            xLeft -= Random.Range(minDistance, maxDistance);
+            Vector3 position = new Vector3(xLeft, yOffset, 0f);
+            SpawnRandomTree(position);
+        }
 
-            // Instantiate tree
-            Vector3 position = new Vector3(xPos, yOffset, 0f);
-            Instantiate(treePrefab, position, Quaternion.identity, transform);
-
-            // Advance xPos by a random distance
-            float step = Random.Range(minDistance, maxDistance);
-            xPos += step;
+        // RIGHT SIDE
+        float xRight = safeZoneWidth;
+        while (xRight <= xLimit)
+        {
+            Vector3 position = new Vector3(xRight, yOffset, 0f);
+            SpawnRandomTree(position);
+            xRight += Random.Range(minDistance, maxDistance);
         }
     }
+
+    private void SpawnRandomTree(Vector3 position)
+    {
+        GameObject treePrefab = treePrefabs[Random.Range(0, treePrefabs.Length)];
+        Instantiate(treePrefab, position, Quaternion.identity, transform);
+    }
 }
+
