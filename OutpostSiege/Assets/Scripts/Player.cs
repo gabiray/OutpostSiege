@@ -1,8 +1,10 @@
 using System.Linq.Expressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [Header("Player stats")]
     [SerializeField] private float moveForce = 10f;
 
     private float movementX;
@@ -12,6 +14,16 @@ public class Player : MonoBehaviour
 
     private string RUNNING_ANIMATION = "running";
     private SpriteRenderer spriteRenderer;
+
+    // Added 07.05.25 for player stats 
+    [Header("Player coins")]
+    [SerializeField] private Text coinText;
+
+    [SerializeField] private int maxCoins = 20;
+    [SerializeField] private int startingCoins = 20;
+
+    private int currentCoins;
+
 
     private void Awake()
     {
@@ -23,7 +35,8 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        currentCoins = Mathf.Clamp(startingCoins, 0, maxCoins);
+        UpdateCoinUI();
     }
 
     // Update is called once per frame
@@ -57,4 +70,14 @@ public class Player : MonoBehaviour
             animator.SetBool(RUNNING_ANIMATION, false);
         }
     }
+
+    // added 07.05.25 for coint update
+    void UpdateCoinUI()
+    {
+        if (coinText != null)
+        {
+            coinText.text = $"x{currentCoins}";
+        }
+    }
+
 }
