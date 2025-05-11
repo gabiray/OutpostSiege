@@ -126,10 +126,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinHolderPrefab: {fileID: 6664048122384657611, guid: 17b899d8503f9004b81b505650f89c7b, type: 3}
+  coinPrefab: {fileID: 8772392449366757880, guid: 3d51dac5aa699634ea2807f2b89fb0ba, type: 3}
+  engineerPrefab: {fileID: 6071343418525598006, guid: 5417777178fc7c243b6f57ce8d92533b, type: 3}
   coinSpawnPoints:
   - {fileID: 4284220119192186040}
   - {fileID: 5652005587637730747}
   - {fileID: 4143166762256795657}
+  engineerSpawnPoint: {fileID: 4330598015314308249}
+  minOffsetX: -3
+  maxOffsetX: 3
 --- !u!1 &2334860205693095662
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,8 +382,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< Updated upstream
   m_SortingLayerID: 0
   m_SortingLayer: 0
+=======
+  m_SortingLayerID: -163991309
+  m_SortingLayer: 6
+>>>>>>> Stashed changes
   m_SortingOrder: 0
   m_Sprite: {fileID: -1790145400590651902, guid: 07dbd0d55d966274cbd29bead11f7ccd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

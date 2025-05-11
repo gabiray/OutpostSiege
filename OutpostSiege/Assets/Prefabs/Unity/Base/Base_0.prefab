@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4533915642161319084}
   m_Layer: 0
-  m_Name: Coin_Slot_2
+  m_Name: Coin_Slot_1
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 271630057139584006}
   - component: {fileID: 926544964970374424}
   - component: {fileID: 4188995131806464046}
-  - component: {fileID: 5010013609632442993}
+  - component: {fileID: 8292457802396165094}
   m_Layer: 0
   m_Name: Base_0
   m_TagString: Untagged
@@ -64,8 +64,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2457874793972848138}
-  - {fileID: 6009004538929924778}
   - {fileID: 4533915642161319084}
+  - {fileID: 6009004538929924778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &926544964970374424
@@ -109,8 +109,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< Updated upstream
   m_SortingLayerID: 0
   m_SortingLayer: 0
+=======
+  m_SortingLayerID: -163991309
+  m_SortingLayer: 6
+>>>>>>> Stashed changes
   m_SortingOrder: 0
   m_Sprite: {fileID: 6234176133674011997, guid: 07dbd0d55d966274cbd29bead11f7ccd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -169,7 +174,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1454141, y: 0.9675019}
   m_EdgeRadius: 0
---- !u!114 &5010013609632442993
+--- !u!114 &8292457802396165094
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,8 +189,8 @@ MonoBehaviour:
   coinHolderPrefab: {fileID: 6664048122384657611, guid: 17b899d8503f9004b81b505650f89c7b, type: 3}
   coinSpawnPoints:
   - {fileID: 2457874793972848138}
-  - {fileID: 6009004538929924778}
   - {fileID: 4533915642161319084}
+  - {fileID: 6009004538929924778}
 --- !u!1 &5086824717222652727
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6009004538929924778}
   m_Layer: 0
-  m_Name: Coin_Slot_1
+  m_Name: Coin_Slot_2
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Tree
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,11 @@ TagManager:
   - UI
   - Player
   - NPCs
+<<<<<<< Updated upstream
   - 
+=======
+  - Walls
+>>>>>>> Stashed changes
   - 
   - 
   - 
@@ -41,20 +46,41 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Sky
     uniqueID: 1859340711
     locked: 0
+<<<<<<< Updated upstream
+=======
+  - name: Clouds2
+    uniqueID: 3236540309
+    locked: 0
+  - name: Clouds1
+    uniqueID: 1432126385
+    locked: 0
+  - name: BackHills
+    uniqueID: 385911227
+    locked: 0
+  - name: FrontHills
+    uniqueID: 3148624175
+    locked: 0
+  - name: Base
+    uniqueID: 4130975987
+    locked: 0
+>>>>>>> Stashed changes
   - name: Trees
     uniqueID: 3065175653
-    locked: 0
-  - name: Coin_Tree
-    uniqueID: 1173575535
     locked: 0
   - name: Outposts
     uniqueID: 1699862633
     locked: 0
+  - name: Coin_Holder
+    uniqueID: 1173575535
+    locked: 0
+  - name: Coin_Placed
+    uniqueID: 3068572377
+    locked: 0
   - name: NPCs
-    uniqueID: 4133148763
+    uniqueID: 4161812875
     locked: 0
   - name: Player
     uniqueID: 341444847
@@ -62,5 +88,11 @@ TagManager:
   - name: Ground
     uniqueID: 1830397673
     locked: 0
+<<<<<<< Updated upstream
+=======
+  - name: BUFFER
+    uniqueID: 3768255447
+    locked: 0
+>>>>>>> Stashed changes
   m_RenderingLayers:
   - Default

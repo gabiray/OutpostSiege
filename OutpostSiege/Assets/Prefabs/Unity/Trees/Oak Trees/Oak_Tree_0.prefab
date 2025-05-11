@@ -43,9 +43,13 @@ GameObject:
   - component: {fileID: 7162636226686526011}
   - component: {fileID: 662148575689115817}
   - component: {fileID: 5284587302702615155}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 4919793423467782520}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Oak_Tree_0
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +112,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1229791643
-  m_SortingLayer: 2
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 8970083247688643620, guid: 56e8eece0f4f69b46b8c049f0ed98a93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -182,3 +186,19 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   coinPrefab: {fileID: 6664048122384657611, guid: 17b899d8503f9004b81b505650f89c7b, type: 3}
   coinSpawnPoint: {fileID: 3436908881344380796}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &4919793423467782520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918140464133962897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d548934f2aca3d945a78c498ae769534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+>>>>>>> Stashed changes
