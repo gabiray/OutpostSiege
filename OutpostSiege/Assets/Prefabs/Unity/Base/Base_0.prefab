@@ -109,13 +109,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-<<<<<<< Updated upstream
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-=======
   m_SortingLayerID: -163991309
   m_SortingLayer: 6
->>>>>>> Stashed changes
   m_SortingOrder: 0
   m_Sprite: {fileID: 6234176133674011997, guid: 07dbd0d55d966274cbd29bead11f7ccd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinHolderPrefab: {fileID: 6664048122384657611, guid: 17b899d8503f9004b81b505650f89c7b, type: 3}
+  coinPrefab: {fileID: 8772392449366757880, guid: 3d51dac5aa699634ea2807f2b89fb0ba, type: 3}
   coinSpawnPoints:
   - {fileID: 2457874793972848138}
   - {fileID: 4533915642161319084}

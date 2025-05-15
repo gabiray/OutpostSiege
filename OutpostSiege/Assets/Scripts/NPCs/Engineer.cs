@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
@@ -22,6 +21,20 @@ public class Engineer : MonoBehaviour
 
     private readonly Queue<(GameObject tree, Action<GameObject> callback)> taskQueue = new();
 
+    private void OnEnable()
+    {
+        // Subscribe to Tree_Task_Manager's event to get notified when a new task is added
+        if (Tree_Task_Manager.Instance != null)
+            Tree_Task_Manager.Instance.OnNewTaskAdded += OnNewTaskAddedHandler;
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe when disabled/destroyed to avoid memory leaks
+        if (Tree_Task_Manager.Instance != null)
+            Tree_Task_Manager.Instance.OnNewTaskAdded -= OnNewTaskAddedHandler;
+    }
+
     private void Start()
     {
         basePosition = transform.position;
@@ -33,10 +46,20 @@ public class Engineer : MonoBehaviour
 
         StartCoroutine(HandleQueue());
 
-        // Check for pending tasks
+        // Removed initial manual global task check — event subscription covers that now
+    }
+
+    // Event handler called when a new tree task is added globally
+    private void OnNewTaskAddedHandler()
+    {
         if (Tree_Task_Manager.Instance.TryGetTask(out var task))
         {
-            RequestTreeCut(task.Item1, task.Item2);
+            // Avoid duplicate tasks in local queue
+            if (!IsTreeAlreadyQueued(task.Item1))
+            {
+                taskQueue.Enqueue(task);
+                Debug.Log($"Engineer received new task via event: {task.Item1.name}");
+            }
         }
     }
 
@@ -44,11 +67,9 @@ public class Engineer : MonoBehaviour
     {
         if (!IsTreeAlreadyQueued(tree))
         {
-            // Enqueue the tree cutting task
             taskQueue.Enqueue((tree, onTreeCut));
             Debug.Log($"Tree added to queue: {tree.name}");
 
-            // Update the tree's visual state to indicate it has been paid for
             tree.GetComponent<Tree_Interactions>()?.ForcePaidVisual();
         }
         else
@@ -70,6 +91,8 @@ public class Engineer : MonoBehaviour
     {
         while (true)
         {
+            // Removed global task polling since event-driven approach handles it
+
             if (taskQueue.Count == 0)
             {
                 yield return new WaitForSeconds(0.5f);
@@ -82,24 +105,19 @@ public class Engineer : MonoBehaviour
 
                 if (tree == null) continue;
 
-                // Move to tree and wait until we touch its collider
                 yield return MoveTo(tree);
 
-                // Start engineering animation
                 animator.SetBool("engineering", true);
 
                 yield return new WaitForSeconds(cutDuration);
 
                 animator.SetBool("engineering", false);
 
-                // Spawn coins before destroying the tree
-                int coins = UnityEngine.Random.Range(minCoins, maxCoins + 1);
-                callback?.Invoke(tree); // let Player_Interactions handle coin adding
+                callback?.Invoke(tree);
 
                 Destroy(tree);
             }
 
-            // Move back to base position
             yield return MoveTo(basePosition);
             animator.SetBool("running", false);
         }
@@ -110,7 +128,6 @@ public class Engineer : MonoBehaviour
         animator.SetBool("running", true);
         FlipToFace(targetPos.x);
 
-        // Keep Y and Z the same as current to prevent vertical movement
         Vector3 targetFlat = new Vector3(targetPos.x, transform.position.y, transform.position.z);
 
         while (Vector3.Distance(transform.position, targetFlat) > stopDistance)
@@ -136,7 +153,6 @@ public class Engineer : MonoBehaviour
         animator.SetBool("running", true);
         FlipToFace(targetObject.transform.position.x);
 
-        // Move until colliders overlap
         while (!myCollider.IsTouching(targetCollider))
         {
             Vector3 targetPos = new Vector3(targetObject.transform.position.x, transform.position.y, transform.position.z);

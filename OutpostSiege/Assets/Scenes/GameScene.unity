@@ -119,8 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &143293209
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +380,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1 &399977051
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,8 +582,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minX: -75
   maxX: 75
-<<<<<<< Updated upstream
-=======
 --- !u!1 &580363902
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +773,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,11 +810,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-<<<<<<< Updated upstream
-  m_ApplyToSortingLayers: 00000000a749d36eef085a14e9a6196d65deb2b66f57f34569d85165
-=======
   m_ApplyToSortingLayers: 00000000a749d36eef085a14e9a6196d65deb2b66f57f34569d8516595afe9c0b1835c55d9b2e6b6bb8900172f31acbbf3b039f6d7039be08b3910f8
->>>>>>> Stashed changes
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -872,8 +862,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1409100620046858639, guid: 1ff4445cda9e5844b8d89434762b6f79, type: 3}
   m_PrefabInstance: {fileID: 8684611279304377807}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &728306223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,7 +1140,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1 &931955081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,8 +1349,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1389980436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1456,6 @@ MonoBehaviour:
   maxCoins: 20
   startingCoins: 20
   coinText: {fileID: 1558409005}
->>>>>>> Stashed changes
 --- !u!114 &1558409005 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 990251192523571564, guid: 1ff4445cda9e5844b8d89434762b6f79, type: 3}
@@ -1483,8 +1467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1792116027
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,7 +1885,6 @@ Transform:
   - {fileID: 1897638261}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1890583336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,8 +1964,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1897638259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,7 +2155,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1 &2099394052
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,12 +2300,6 @@ PrefabInstance:
       propertyPath: coinText
       value: 
       objectReference: {fileID: 1558409005}
-<<<<<<< Updated upstream
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-=======
     - target: {fileID: 7056340976196789955, guid: 5da3ac2e52225314da04b6a6d2e9d106, type: 3}
       propertyPath: startingCoins
       value: 5
@@ -2339,7 +2311,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4762935749996554835, guid: 5da3ac2e52225314da04b6a6d2e9d106, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1425809386}
->>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 5da3ac2e52225314da04b6a6d2e9d106, type: 3}
 --- !u!1001 &8684611279304377807
 PrefabInstance:
@@ -2448,7 +2419,4 @@ SceneRoots:
   - {fileID: 577055791596491872}
   - {fileID: 2100898866}
   - {fileID: 1890583339}
-<<<<<<< Updated upstream
-=======
   - {fileID: 1886823703}
->>>>>>> Stashed changes

@@ -3,53 +3,70 @@ using UnityEngine;
 
 public class Lvl0_Wall_Interaction : MonoBehaviour
 {
-    // Coin Setup
     [Header("Coin Setup")]
-    public GameObject coinPrefab;            // Unpaid coin icon
-    public GameObject paidCoinPrefab;        // Paid coin icon
-    public List<Transform> coinSpawnPoints;  // List of locations to spawn coin visuals
+    public GameObject coinPrefab;             // Prefab for the coin the player can collect
+    public GameObject paidCoinPrefab;         // Prefab shown after coins are paid
+    public List<Transform> coinSpawnPoints;   // Spawn points for coin placement
 
-    private List<GameObject> coinInstances = new List<GameObject>();  // List of current coin objects
-    private bool isPaid = false;             // Track whether coins have been paid
+    [Header("Tree Blocking Settings")]
+    [SerializeField] private float blockRadius = 5f; // Radius to check for nearby trees
 
-    // Unity Lifecycle
+    private List<GameObject> coinInstances = new();  // List of active coins in the scene
+    private bool isPaid = false;                     // Flag to prevent repeat payments
+
     private void Start()
     {
-        // Initialize the coin instances list (empty to start)
+        // Clear any leftover coin references on start
         coinInstances.Clear();
     }
 
-    // Player Enters Wall Area
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        // Trigger interaction only when player enters and coins haven't been paid
+        if (other.CompareTag("Player") && !isPaid && coinInstances.Count == 0)
         {
-            // Spawn coins at available spawn points if not already paid
-            if (coinInstances.Count == 0 && !isPaid)
+            // Don't spawn coins if trees are nearby
+            if (AreTreesNearby()) return;
+
+            // Spawn coins at designated spawn points
+            foreach (Transform spawnPoint in coinSpawnPoints)
             {
-                foreach (Transform spawnPoint in coinSpawnPoints)
-                {
-                    GameObject coinInstance = Instantiate(coinPrefab, spawnPoint.position, Quaternion.identity, transform);
-                    coinInstances.Add(coinInstance);  // Add the spawned coin to the list
-                }
+                var coin = Instantiate(coinPrefab, spawnPoint.position, Quaternion.identity, transform);
+                coinInstances.Add(coin);
             }
         }
     }
 
-    // Player Leaves Wall Area
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        // Remove unclaimed coins when the player leaves
+        if (other.CompareTag("Player") && !isPaid)
         {
-            // Destroy coins when player leaves area and no coins are paid yet
-            if (!isPaid && coinInstances.Count > 0)
+            foreach (var coin in coinInstances)
             {
-                foreach (GameObject coin in coinInstances)
-                {
-                    Destroy(coin);  // Destroy each coin in the list
-                }
-                coinInstances.Clear();  // Clear the list of coin instances
+                Destroy(coin);
             }
+            coinInstances.Clear();
         }
     }
+
+    // Checks for trees within a certain radius
+    private bool AreTreesNearby()
+    {
+        Collider2D[] nearbyObjects = Physics2D.OverlapCircleAll(transform.position, blockRadius);
+        foreach (Collider2D col in nearbyObjects)
+        {
+            if (col.CompareTag("Tree")) return true;
+        }
+        return false;
+    }
+
+#if UNITY_EDITOR
+    // Visualize blocking radius in Scene view for debugging
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, blockRadius);
+    }
+#endif
 }

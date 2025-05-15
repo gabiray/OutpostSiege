@@ -43,10 +43,7 @@ GameObject:
   - component: {fileID: 7695569278753739627}
   - component: {fileID: -3125301409814137597}
   - component: {fileID: 5766548264579779441}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 4502871197388319172}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Birch_Tree_3
   m_TagString: Tree
@@ -185,9 +182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   coinPrefab: {fileID: 6664048122384657611, guid: 17b899d8503f9004b81b505650f89c7b, type: 3}
+  paidCoinPrefab: {fileID: 8772392449366757880, guid: 3d51dac5aa699634ea2807f2b89fb0ba, type: 3}
   coinSpawnPoint: {fileID: 1233589002306674744}
-<<<<<<< Updated upstream
-=======
 --- !u!114 &4502871197388319172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,4 +197,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
->>>>>>> Stashed changes

@@ -78,11 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 341444847
-<<<<<<< Updated upstream
-  m_SortingLayer: 5
-=======
   m_SortingLayer: 12
->>>>>>> Stashed changes
   m_SortingOrder: 0
   m_Sprite: {fileID: 7405406973212734814, guid: 4fcc909474110524a9ddbba513ed5ca6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -144,25 +140,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
-<<<<<<< Updated upstream
---- !u!114 &7056340976196789955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4762935749996554835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2c1b5e269635948818aa75eec35cd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveForce: 6
-  coinText: {fileID: 0}
-  maxCoins: 20
-  startingCoins: 20
-=======
->>>>>>> Stashed changes
 --- !u!70 &6296975683022078722
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

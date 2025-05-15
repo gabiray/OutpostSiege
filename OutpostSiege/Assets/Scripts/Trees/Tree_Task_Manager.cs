@@ -1,47 +1,45 @@
-using System;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Tree_Task_Manager : MonoBehaviour
 {
-    public static Tree_Task_Manager Instance { get; private set; }
+    public static Tree_Task_Manager Instance;
 
-    private readonly Queue<(GameObject, Action<GameObject>)> pendingTasks = new();
+    private Queue<(GameObject, Action<GameObject>)> queuedTrees = new Queue<(GameObject, Action<GameObject>)>();
+
+    // Event to notify subscribers (engineers) that a new task is available
+    public event Action OnNewTaskAdded;
 
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     public void AddTask(GameObject tree, Action<GameObject> callback)
     {
-        if (!IsTreeAlreadyQueued(tree))
-        {
-            pendingTasks.Enqueue((tree, callback));
-            Debug.Log($"Tree queued in Task Manager: {tree.name}");
-        }
+        queuedTrees.Enqueue((tree, callback));
+        Debug.Log($"Added tree task: {tree.name}");
+
+        // Notify subscribers that a new task has been added
+        OnNewTaskAdded?.Invoke();
     }
 
     public bool TryGetTask(out (GameObject, Action<GameObject>) task)
     {
-        if (pendingTasks.Count > 0)
+        if (queuedTrees.Count > 0)
         {
-            task = pendingTasks.Dequeue();
+            task = queuedTrees.Dequeue();
             return true;
         }
-
         task = default;
-        return false;
-    }
-
-    private bool IsTreeAlreadyQueued(GameObject tree)
-    {
-        foreach (var task in pendingTasks)
-            if (task.Item1 == tree)
-                return true;
         return false;
     }
 }

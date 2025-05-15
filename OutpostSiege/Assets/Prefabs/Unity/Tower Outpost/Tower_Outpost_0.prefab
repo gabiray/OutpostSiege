@@ -1,7 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< Updated upstream
-=======
 --- !u!1 &2940905454124647840
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +155,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2149892413078002177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &8529213224614794842
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,10 +166,7 @@ GameObject:
   - component: {fileID: 2149892413078002177}
   - component: {fileID: 5388247295276396825}
   - component: {fileID: 6814232818413162276}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 1687103065515829223}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Tower_Outpost_0
   m_TagString: Untagged
@@ -192,16 +186,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-<<<<<<< Updated upstream
-  m_Children: []
-=======
   m_Children:
   - {fileID: 3554580749428376969}
   - {fileID: 2801458314887261350}
   - {fileID: 4844603999832352566}
   - {fileID: 6292988613396756998}
   - {fileID: 1951161294148232437}
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5388247295276396825
@@ -246,11 +236,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1699862633
-<<<<<<< Updated upstream
-  m_SortingLayer: 4
-=======
   m_SortingLayer: 8
->>>>>>> Stashed changes
   m_SortingOrder: 0
   m_Sprite: {fileID: 4917209289006270528, guid: c0049e685ef5ff84ba9ba31f7248380b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -309,8 +295,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.081053, y: 0.41362906}
   m_EdgeRadius: 0
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1687103065515829223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,4 +315,4 @@ MonoBehaviour:
   - {fileID: 4844603999832352566}
   - {fileID: 6292988613396756998}
   - {fileID: 1951161294148232437}
->>>>>>> Stashed changes
+  blockRadius: 4

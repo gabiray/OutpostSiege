@@ -12,10 +12,7 @@ GameObject:
   - component: {fileID: 116068333061567900}
   - component: {fileID: 5691845516618475392}
   - component: {fileID: 2742955680977905940}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 1420833090962666530}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Dead_Tree_0
   m_TagString: Tree
@@ -154,9 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   coinPrefab: {fileID: 6664048122384657611, guid: 17b899d8503f9004b81b505650f89c7b, type: 3}
+  paidCoinPrefab: {fileID: 8772392449366757880, guid: 3d51dac5aa699634ea2807f2b89fb0ba, type: 3}
   coinSpawnPoint: {fileID: 9062344662725994385}
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1420833090962666530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
->>>>>>> Stashed changes
 --- !u!1 &6483355952078595058
 GameObject:
   m_ObjectHideFlags: 0
