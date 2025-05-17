@@ -57,6 +57,9 @@ TagManager:
   - name: FrontHills
     uniqueID: 3148624175
     locked: 0
+  - name: USV
+    uniqueID: 1266266131
+    locked: 0
   - name: Base
     uniqueID: 4130975987
     locked: 0
