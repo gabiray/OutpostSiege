@@ -1,7 +1,7 @@
 UPDATE (USV, simple - Main Menu) v0.0.4b
 - added USV prefab
 - added MAIN MENU scene (new Main_Menu_Controller script, START NEW GAME - button, EXIT - button)
-- updated README.md (Game Developmet Convention)
+- updated README.md (Game Development Convention)
 
 UPDATE (ALLIES and ENEMIES) v0.0.5
 - added tags (allied, enemy)
@@ -13,5 +13,17 @@ UPDATE (ALLIES and ENEMIES) v0.0.5
 UPDATE (ALLIES and ENEMIES) v0.0.6
 - PAID/UNPAID trees visuals bugs resolved
 - modified INFANTRY script
-- set queries hit triggers to FLASE (Pj. Settings)
-- UI MAIN MENU folders
+- modified LAYERS
+- added UI MAIN MENU folders
+
+UPDATE (USV and Enemies) v0.0.7
+- added ENEMY INFANTRY scripts
+- modified INFANTRY, ENEMY INFANTRY scripts
+- added ENEMY SPAWNERS prefabs and script folders
+- modified PLAYER scripts (separated code)
+- improved visual on coins interactions with WALLS and TOWERS
+- added new FOLDERS for WALLS LVEVELS
+- added COLLIDERS for WALLS
+- added Wall_Health SCRIPT
+- modified WALLS prefabs
+- added USV
