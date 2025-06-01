@@ -38,3 +38,24 @@ UPDATE (UI - Main Menu, Pause Menu) v0.0.8
 - PLAYER MOVEMENT && PLAYER COIN script modified (just added isPaid line for pause)
 - added M4 Tank PREFAB
 - added DIALOGUE_MANAGER and dialog
+
+UPDATE (TANK, OUPOST, PALYER MENU, MENU FUNCTIONALITY) v0.0.9
+- added in CANVAS - PLAYER MENU prefab
+- added Player_Menu_Controller SCRIPT in UI PLAYER MENU folder
+- added MAIN TENT COLLIDER on BASE_1 prefab (Base - Tag)
+- added in MAIN BASE folder BASE_HEALTH script
+- modified OUTPOST prefab
+- added SNIPER prefab
+- added UI MANAGER
+- modified USV_INTERACTIONS with dialogue
+- added SNIPER and RIFLE scripts
+- added ENEMY BASE prefab and in ENEMY SPAWNER
+- added empty Player_health SCRIPT
+- added GAME OVER
+- added YOU WON
+- added M4 TANK SCRIPTS
+- added GAME_OVER_CONTROLLER and implemented PLAYER_HEALTH
+- added ENEMY SPAWN MANAGER 
+- added two new ENEMY SPAWNER
+- added COLLECTROS and player LIMITS
+- added MODELS for UI MAIN MENU
