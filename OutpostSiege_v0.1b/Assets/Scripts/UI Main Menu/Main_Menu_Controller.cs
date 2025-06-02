@@ -40,17 +40,15 @@ public class Main_Menu_Controller : MonoBehaviour
         CloseAllPanels();
         exitPanel.SetActive(true);
     }
-    
+
     public void OnConfirmationYes()
     {
-        if (UnityEditor.EditorApplication.isPlaying)
-        {
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-        else
-        {
-            Application.Quit();
-        }
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
+
         Debug.Log("Exit - button was clicked.");
     }
 

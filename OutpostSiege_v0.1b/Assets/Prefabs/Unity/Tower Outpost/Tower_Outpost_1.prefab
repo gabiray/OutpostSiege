@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5614654605080641591, guid: 83047c4942c71194f82053176e5c5013, type: 3}
       propertyPath: detectionRadius
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5614654605080641591, guid: 83047c4942c71194f82053176e5c5013, type: 3}
       propertyPath: minShootingRadius
