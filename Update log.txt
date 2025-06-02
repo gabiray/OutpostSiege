@@ -59,3 +59,6 @@ UPDATE (TANK, OUPOST, PALYER MENU, MENU FUNCTIONALITY) v0.0.9
 - added two new ENEMY SPAWNER
 - added COLLECTROS and player LIMITS
 - added MODELS for UI MAIN MENU
+
+UPDATE - PLAY VERISON v0.1
+- first playable version available 
